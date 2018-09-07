@@ -2,34 +2,34 @@
 local function run(msg, matches) 
 if matches[1] == "setpm" then 
 if not is_sudo(msg) then 
-return 'ÔãÇ ÓæÏæ äíÓÊíÏ' 
-end 
+return 'Ã”Ã£Ã‡ Ã“Ã¦ÃÃ¦ Ã¤Ã­Ã“ÃŠÃ­Ã' 
+end  
 local pm = matches[2] 
 redis:set('bot:pm',pm) 
-return 'ãÊä ÇÓÎ æíí ËÈÊ ÔÏ' 
+return 'Ã£ÃŠÃ¤ ÂÃ‡Ã“Ã ÂÃ¦Ã­Ã­ Ã‹ÃˆÃŠ Ã”Ã' 
 end 
  
 if matches[1] == "pm" and is_sudo(msg) then
 local hash = ('bot:pm') 
     local pm = redis:get(hash) 
     if not pm then 
-    return ' ËÈÊ äÔÏå' 
+    return ' Ã‹ÃˆÃŠ Ã¤Ã”ÃÃ¥' 
     else 
-	   return edit_msg(msg.to.id, msg.id, 'íÛÇã ˜äæäí ãäÔí:\n\n'..pm, "html")
+	   return edit_msg(msg.to.id, msg.id, 'ÂÃ­Ã›Ã‡Ã£ ËœÃ¤Ã¦Ã¤Ã­ Ã£Ã¤Ã”Ã­:\n\n'..pm, "html")
     end
 end
 
 if matches[1]=="monshi" then 
 if not is_sudo(msg) then 
-return 'ÔãÇ ÓæÏæ äíÓÊíÏ' 
+return 'Ã”Ã£Ã‡ Ã“Ã¦ÃÃ¦ Ã¤Ã­Ã“ÃŠÃ­Ã' 
 end 
 if matches[2]=="on"then 
 redis:set("bot:pm", "no pm")
-return "ãäÔí İÚÇá ÔÏ áØİÇ ÏæÈÇÑå íÛÇã ÑÇ ÊäÙíã ˜äíÏ" 
+return "Ã£Ã¤Ã”Ã­ ÃÃšÃ‡Ã¡ Ã”Ã Ã¡Ã˜ÃÃ‡ ÃÃ¦ÃˆÃ‡Ã‘Ã¥ ÂÃ­Ã›Ã‡Ã£ Ã‘Ã‡ ÃŠÃ¤Ã™Ã­Ã£ ËœÃ¤Ã­Ã" 
 end 
 if matches[2]=="off"then 
 redis:del("bot:pm")
-return "ãäÔí ÛíÑİÚÇá ÔÏ" 
+return "Ã£Ã¤Ã”Ã­ Ã›Ã­Ã‘ÃÃšÃ‡Ã¡ Ã”Ã" 
 end
  end
   if gp_type(msg.chat_id_) == "pv" and  msg.content_.text_ then
