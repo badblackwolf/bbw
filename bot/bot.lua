@@ -13,6 +13,7 @@ json = (loadfile "./libs/JSON.lua")()
 utf8 = (loadfile "./libs/utf8.lua")()
 mimetype = (loadfile "./libs/mimetype.lua")()
 redis = (loadfile "./libs/redis.lua")()
+redis:select(1)
 JSON = (loadfile "./libs/dkjson.lua")()
 local lgi = require ('lgi')
 local notify = lgi.require('Notify')
@@ -75,21 +76,10 @@ end
 function create_self( )
   self = {
     names = {
-    "solid",
-    "سلید",
-    "سولید",
-    "سعید",
-    "saeed",
-    "saeid"
+    "dnt dlt it"
     },
     answers = {
-    "وات؟ :/",
-    "بلی؟",
-    "بفرما",
-    "بوگوی :|",
-    "جونم؟",
-    "جونز",
-    "ژون؟ :/"
+    "پاک نشه"
     },
 }
   serialize_to_file(self, './data/self.lua')
@@ -122,37 +112,34 @@ function create_config( )
 	config = {
     enabled_plugins = {
     "self-manager",
+    "cldl",
+    "monshi",
+    "like",
+    "music",
+    "sbot",
+    "spam",
+    "sik", 
     "groupmanager",
     "plugins",
     "self",
-		"tools",
+    "tools",
      "fun"
 	},
-    sudo_users = {157059515},
+    sudo_users = {260825292},
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[》Beyond Self Bot V3.0
+    info_text = [[》BBW Self Bot V4.0
 An fun bot based on BDReborn
 
-》https://github.com/BeyondTeam/BDSelf 
+》https://github.com/bablackwolf/bbw
 
 》Admins :
-》@SoLiD ➣ Founder & Developer《
-》@Makan ➣ Developer & Sponser《
-》@ToOfan ➣ Developer《
-
-》Special thanks to :
-》@kuncen
-》@Vysheng
-》@MrHalix
-》And Beyond Team Members
+》@msaeidm68 ➣ Sponser《
+》@BAD_BLACK_WOLF ➣ Developer《
 
 》Our channel :
-》@BeyondTeam《
-
-》Our website :
-》http://BeyondTeam.ir
+》@robotsaless《
 ]],
   }
 	serialize_to_file(config, './data/config.lua')
@@ -217,13 +204,13 @@ local function enable_channel(msg_id, receiver)
 	end
 
 	if _config.disabled_channels[receiver] == nil or _config.disabled_channels[receiver] == false then
-		return edit_msg(receiver, msg_id, "`Self Is Not Off :)`", "md")
+		return edit_msg(receiver, msg_id, "`❗️داداش روشنه ❕`", "md")
 	end
 	
 	_config.disabled_channels[receiver] = false
 
 	save_config()
-	return edit_msg(receiver, msg_id, "*Self Is On Now :D*","md")
+	return edit_msg(receiver, msg_id, "*❕حله روشنه ❗️*","md")
 end
 
 function msg_valid(msg)
@@ -232,12 +219,12 @@ function msg_valid(msg)
 		 return false
 	 end
 	if is_sudo(msg) and msg.content_.text_ then
-	  if msg.content_.text_ == "/self on" or msg.content_.text_ == "/Self on" or msg.content_.text_ == "!self on" or msg.content_.text_ == "!Self on" then
+	  if msg.content_.text_ == "فعال شو"  then
 	    enable_channel(msg.id_, msg.chat_id_)
 	  end
 	end
   if is_channel_disabled(msg.chat_id_) then
-    print('\27[36m➣Self Is Off :/\27[39m')
+    print('\27[36m❕حله خاموش شد❗️\27[39m')
    return false
 	  end
     return true
