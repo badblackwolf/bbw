@@ -365,7 +365,7 @@ local text = [[
 ]]
 
 tdcli.sendMessage(msg.sender_user_id_, "", 0, text, 0, "md")
-            return edit_msg(msg.to.id, msg.id, '_Help was send in your private message_', "md")
+            return edit_msg(msg.to.id, msg.id, '_❕راهنما به پیویت ارسال شد❗️_', "md")
 end
 end
 
