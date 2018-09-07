@@ -58,7 +58,7 @@ local function disable_channel(msg, receiver)
  _config.disabled_channels[receiver] = true
 
  save_config()
- return edit_msg(msg.to.id, msg.id, "*Self Is Off Now :/*", "md")
+ return edit_msg(msg.to.id, msg.id, "*❕حله خاموش شد❗️*", "md")
 end
 
 local function pre_process(msg)
@@ -234,7 +234,7 @@ local hash = 'anti-flood'
       return show_bot_settings(msg)
                  end
 
-if matches[1] == 'help' and is_sudo(msg) then
+if matches[1] == 'help pv' and is_sudo(msg) then
 
 local text = [[
 ⌨️ دستورات :
@@ -369,6 +369,140 @@ tdcli.sendMessage(msg.sender_user_id_, "", 0, text, 0, "md")
 end
 end
 
+if matches[1] == 'help pv' and is_sudo(msg) then
+
+local text = [[
+⌨️ دستورات :
+▫️!settings
+فرستادن تنظیمات سلف بات شما
+
+▫️!gpid
+نمایش آیدی گروه
+
+▫️!tosuper
+تغییر گروه به سوپر گروه
+
+▫️!chatlist
+نمایش لیست اسم
+
+▫️!chat + name answer
+تنظیم اسم پیام و پاسخ آن
+
+▫️!chat - name
+غیر فعال کردن پیام دادن در گروه
+
+▫️!chat clean
+پاک کردن اسم و پاسخ آن
+
+▫️!delmy[name | username]
+حذف کردن اسم یا یوزر نیم شما
+
+▫️!markread [on | off]
+عوض کردن وضعیت سین زدن خودکار
+
+▫️!autoleave [on | off]
+تنظیم وضعیت خارج شدن خودکار از گروه
+
+▫️!antiflood [on | off]
+تنظیم وضعیت ضد اسپم
+
+▫️!self [on | off]
+تنظیم وضعیت سلف بات شما
+
+▫️!pin (reply)
+پین کردن پیام مورد نظر در گروه
+
+▫️!unpin
+آن پین کردن پیام مورد نظر در گروه
+
+▫️!id [reply | username]
+نمایش آیدی شخص
+
+▫️!del (reply)
+حذف پیام مورد نظر
+
+▫️!inv [id | username | reply]
+دعوت کردن شخص به گروه
+
+▫️!kick [id | username | reply]
+حذف کردن شخص از گروه
+
+▫️!delall [id | username | reply]
+حذف کردن همه ی پیام های شخص
+
+▫️!mute all
+ساکت کردن گروه
+
+▫️!unmute all
+رفع ساکت کردن گروه
+
+▫️!set[name | des | link]
+تنظیم اسم ، توضیحات و لینک گروه
+
+▫️!addplugin text name.lua
+ساختن پلاگین مورد نظر شما
+
+▫️!delplugin name
+حذف پلاگین
+
+▫️!setmy[name | username] (name|username)
+تنظیم اسم یا یوزر نیم شما
+
+▫️!addcontact [phone | firstname | lastname]
+اضافه کردن یک مخاطب جدید
+
+▫️!delcontact [phone]
+حذف مخاطب
+
+▫️!addname [name]
+اضافه کردن اسن جدید به لیست اسم ها
+
+▫️!remname [name]
+حذف کردن اسم از لیست اسم ها
+
+▫️!setanswer [answer]
+اضافه کردن پاسخ به لیست پاسخ ها
+
+▫️!remanswer [answer]
+حذف کردن پاسخ از لیست پاسخ ها
+
+▫️!namelist
+نمایش لیست اسم ها
+
+▫️!answerlist
+نمایش لیست پاسخ ها
+
+▫️!pvsetflood [msgs]
+تنظیم آخرین حد پیام درنظر گرفته شده در زمان اسپم خوردن
+
+▫️!pvfloodtime [secs]
+تنظیم زمانی که ربات اسپم را چک میکند
+
+▫️!block [reply | id | username]
+بلاک کردن شخص
+
+▫️!unblock [reply | id | username]
+رفع بلاک شخص
+
+▫️!sendfile [folder] [file]
+فرستادت فایل از فولدر گوشی
+
+▫️!savefile [adress/filename] [reply]
+ذخیره کردن فایل توسط ریپلای در فولدر مورد نظر شما
+
+▫️!edit [text] [reply]
+ویرایش پیام شما توسط ریپلای به پیام مورد نظر
+
+▫️!helpfun
+نمایش دستورات سرگرمی ربات
+
+وقت بخیر ;)
+]]
+
+            return edit_msg(msg.to.id, msg.id, text, "md")
+end
+end
+
 return {
 	description = "Plugin to manage channels. Enable or disable channel.", 
 	usage = {
@@ -380,8 +514,9 @@ return {
      "^[!/#](pvsetflood) (%d+)$",
 		"^[!/#](autoleave) (.*)$",
 		"^[!/#](settings)$",
-		"^[!/#](help)$",
-		"^[!/][Ss]elf (off)" 
+		"^[!/#](راهنما پیوی)$",
+		"^[!/#](راهنما)$",
+		"^(خاموش شو)$" 
 }, 
 	run = run,
 moderated = true,
