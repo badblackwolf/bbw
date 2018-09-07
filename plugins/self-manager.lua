@@ -42,10 +42,10 @@ local function show_bot_settings(msg)
         muteall = '[Disable]'
     end
 if msg.to.type == 'channel' then
-    text = text..'_》Auto Leave :_ *'..autoleave..'*\n_》Mute All :_ *'..muteall..'*\n_》Messages Read :_ *'..markread..'*\n_》Pv Max Flood :_ *['..MSG_NUM_MAX..']*\n_》Pv Flood Time Check :_ *['..TIME_CHECK..']*\n_》Pv Flood Protection :_ *'..antiflood..'*\n*》*@robotsaless*《*'
+    text = text..'_》Auto Leave :_ *'..autoleave..'*\n_》Mute All :_ *'..muteall..'*\n_》Messages Read :_ *'..markread..'*\n_》Pv Max Flood :_ *['..MSG_NUM_MAX..']*\n_》Pv Flood Time Check :_ *['..TIME_CHECK..']*\n_》Pv Flood Protection :_ *'..antiflood..'*\n*》*@BeyondTeam*《*'
 return edit_msg(msg.to.id, msg.id, text, "md")
 elseif msg.to.type == 'pv' or msg.to.type == 'chat' then
-    text = text..'_》Auto Leave :_ *'..autoleave..'*\n_》Messages Read :_ *'..markread..'*\n_》Pv Max Flood :_ *['..MSG_NUM_MAX..']*\n_》Pv Flood Time Check :_ *['..TIME_CHECK..']*\n_》Pv Flood Protection :_ *'..antiflood..'*\n*》*@robotsaless*《*'
+    text = text..'_》Auto Leave :_ *'..autoleave..'*\n_》Messages Read :_ *'..markread..'*\n_》Pv Max Flood :_ *['..MSG_NUM_MAX..']*\n_》Pv Flood Time Check :_ *['..TIME_CHECK..']*\n_》Pv Flood Protection :_ *'..antiflood..'*\n*》*@BeyondTeam*《*'
 return edit_msg(msg.to.id, msg.id, text, "md")
    end
 end
@@ -58,7 +58,7 @@ local function disable_channel(msg, receiver)
  _config.disabled_channels[receiver] = true
 
  save_config()
- return edit_msg(msg.to.id, msg.id, "*❕حله خاموش شد❗️*", "md")
+ return edit_msg(msg.to.id, msg.id, "*Self Is Off Now :/*", "md")
 end
 
 local function pre_process(msg)
@@ -234,7 +234,7 @@ local hash = 'anti-flood'
       return show_bot_settings(msg)
                  end
 
-if matches[1] == 'help pv' and is_sudo(msg) then
+if matches[1] == 'help' and is_sudo(msg) then
 
 local text = [[
 ⌨️ دستورات :
@@ -365,11 +365,11 @@ local text = [[
 ]]
 
 tdcli.sendMessage(msg.sender_user_id_, "", 0, text, 0, "md")
-            return edit_msg(msg.to.id, msg.id, '_❕راهنما به پیویت ارسال شد❗️_', "md")
+            return edit_msg(msg.to.id, msg.id, '_Help was send in your private message_', "md")
 end
 end
 
-if matches[1] == 'help' and is_sudo(msg) then
+if matches[1] == 'help pv' and is_sudo(msg) then
 
 local text = [[
 ⌨️ دستورات :
@@ -514,8 +514,8 @@ return {
      "^[!/#](pvsetflood) (%d+)$",
 		"^[!/#](autoleave) (.*)$",
 		"^[!/#](settings)$",
-		"^[!/#](help pv)$",
 		"^[!/#](help)$",
+	"^[!/#](help pv)$",
 		"^[!/][Ss]elf (off)" 
 }, 
 	run = run,
