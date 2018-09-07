@@ -2,34 +2,34 @@
 local function run(msg, matches) 
 if matches[1] == "setpm" then 
 if not is_sudo(msg) then 
-return 'ÔãÇ ÓæÏæ äíÓÊíÏ' 
-end  
+return 'شما سودو نيستيد' 
+end 
 local pm = matches[2] 
 redis:set('bot:pm',pm) 
-return 'ãÊä ÇÓÎ æíí ËÈÊ ÔÏ' 
+return 'متن پاسخ گويي ثبت شد' 
 end 
  
 if matches[1] == "pm" and is_sudo(msg) then
 local hash = ('bot:pm') 
     local pm = redis:get(hash) 
     if not pm then 
-    return ' ËÈÊ äÔÏå' 
+    return ' ثبت نشده' 
     else 
-	   return edit_msg(msg.to.id, msg.id, 'íÛÇã ˜äæäí ãäÔí:\n\n'..pm, "html")
+	   return edit_msg(msg.to.id, msg.id, 'پيغام کنوني منشي:\n\n'..pm, "html")
     end
 end
 
 if matches[1]=="monshi" then 
 if not is_sudo(msg) then 
-return 'ÔãÇ ÓæÏæ äíÓÊíÏ' 
+return 'شما سودو نيستيد' 
 end 
 if matches[2]=="on"then 
 redis:set("bot:pm", "no pm")
-return "ãäÔí ÝÚÇá ÔÏ áØÝÇ ÏæÈÇÑå íÛÇã ÑÇ ÊäÙíã ˜äíÏ" 
+return "منشي فعال شد لطفا دوباره پيغام را تنظيم کنيد" 
 end 
 if matches[2]=="off"then 
 redis:del("bot:pm")
-return "ãäÔí ÛíÑÝÚÇá ÔÏ" 
+return "منشي غيرفعال شد" 
 end
  end
   if gp_type(msg.chat_id_) == "pv" and  msg.content_.text_ then
