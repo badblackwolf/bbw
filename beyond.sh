@@ -19,27 +19,73 @@ install() {
 		wget https://valtman.name/files/telegram-cli-1222
 		mv telegram-cli-1222 tgcli
 		chmod +x tgcli
-		cd ..
+		cd
+		wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz
+                tar zxpf luarocks-2.2.2.tar.gz
+                cd luarocks-2.2.2
+                ./configure; sudo make bootstrap
+                sudo luarocks install luasocket
+                sudo luarocks install luasec
+                sudo luarocks install redis-lua
+                 sudo luarocks install lua-term
+                sudo luarocks install serpent
+                sudo luarocks install dkjson
+                sudo luarocks install lanes
+                sudo luarocks install Lua-cURL
+                sudo luarocks install luaxmlrpc
+		cd
+		sudo apt-get update
+		sudo apt-get upgrade
+		sudo apt-get install tmux
+		sudo apt-get install luarocks
+		sudo apt-get install screen
+		sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev
+		sudo apt-get update
+		sudo apt-get install
+		sudo apt-get install upstart-sysv
+                sudo apt-get install libstdc++9
+                sudo apt-get install libconfig++9v5 libstdc++6
+                sudo apt-get install libstdc++6
+                sudo apt-get install lua-lgi
+                sudo apt-get install libnotify-dev
+                sudo add-apt-repository ppa:ubuntu-toolchain-r/test 
+                sudo apt-get update
+                sudo apt-get upgrade
+                sudo apt-get dist-upgrade
+		cd BDSelf
 		chmod +x bot
 		chmod +x tg
 		chmod +x autobd.sh
 }
 
 function print_logo() {
-	green "          ____  ____     _____"
-	green "         |  _ )|  _ \   |_   _|___ ____   __  __"
-	green "         |  _ \| |_) )    | |/ .__|  _ \_|  \/  |"
-	green "         |____/|____/     |_|\____/\_____|_/\/\_|"
+	green "8 888888888o   8 888888888o `8.`888b                 ,8'"
+	white "8 8888    `88. 8 8888    `88.`8.`888b               ,8'"
+	red "8 8888     `88 8 8888     `88 `8.`888b             ,8'"
+	green "8 8888     ,88 8 8888     ,88  `8.`888b     .b    ,8'"
+	white "8 8888.   ,88' 8 8888.   ,88'   `8.`888b    88b  ,8'"
+	red "8 8888888888   8 8888888888      `8.`888b .`888b,8'"
+	green "8 8888    `88. 8 8888    `88.     `8.`888b8.`8888'"
+	white "8 8888      88 8 8888      88      `8.`888`8.`88'"
+	red "8 8888    ,88' 8 8888    ,88'       `8.`8' `8,`'"
+	green "8 888888888P   8 888888888P          `8.`   `8'"
+	
 	echo -e "\n\e[0m"
 }
 
 function logo_play() {
     declare -A txtlogo
     seconds="0.010"
-    txtlogo[1]=" ____  ____     _____"
-    txtlogo[2]="|  _ )|  _ \   |_   _|___ ____   __  __"
-    txtlogo[3]="|  _ \| |_) )    | |/ .__|  _ \_|  \/  |"
-    txtlogo[4]="|____/|____/     |_|\____/\_____|_/\/\_|"
+    txtlogo[1]="8 888888888o   8 888888888o `8.`888b                 ,8'"
+    txtlogo[2]="8 8888    `88. 8 8888    `88.`8.`888b               ,8'"
+    txtlogo[3]="8 8888     `88 8 8888     `88 `8.`888b             ,8'"
+    txtlogo[4]="8 8888     ,88 8 8888     ,88  `8.`888b     .b    ,8'"
+    txtlogo[5]="8 8888.   ,88' 8 8888.   ,88'   `8.`888b    88b  ,8'"
+    txtlogo[6]="8 8888888888   8 8888888888      `8.`888b .`888b,8'"
+    txtlogo[7]="8 8888    `88. 8 8888    `88.     `8.`888b8.`8888'"
+    txtlogo[8]="8 8888      88 8 8888      88      `8.`888`8.`88'"
+    txtlogo[9]="8 8888    ,88' 8 8888    ,88'       `8.`8' `8,`'"
+    txtlogo[10]="8 888888888P   8 888888888P          `8.`   `8'"
     printf "\e[31m\t"
     for i in ${!txtlogo[@]}; do
         for x in `seq 0 ${#txtlogo[$i]}`; do
@@ -59,7 +105,7 @@ function beyondteam() {
 	white "     >>>>                       We Are Programmer                               "
 	white "     >>>>                       We Are The Best                                 "
 	red   "     >>>>                       We Are Family                                   "
-	red   "     >>>>                       @BeyondTeam                                     "
+	red   "     >>>>                       @BAD_BLACK_WOLF                                 "
 	echo -e "\e[0m"
 }
 
