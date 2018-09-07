@@ -112,18 +112,18 @@ function create_config( )
 	config = {
     enabled_plugins = {
     "self-manager",
+    "groupmanager",
+    "plugins",
+    "self",
+    "tools",
+     "fun",
     "cldl",
     "monshi",
     "like",
     "music",
     "sbot",
     "spam",
-    "sik", 
-    "groupmanager",
-    "plugins",
-    "self",
-    "tools",
-     "fun"
+    "sik"
 	},
     sudo_users = {260825292},
     admins = {},
@@ -203,14 +203,14 @@ local function enable_channel(msg_id, receiver)
 		_config.disabled_channels = {}
 	end
 
-	if _config.disabled_channels[receiver] == nil or _config.disabled_channels[receiver] == false then
-		return edit_msg(receiver, msg_id, "`❗️داداش روشنه ❕`", "md")
+		if _config.disabled_channels[receiver] == nil or _config.disabled_channels[receiver] == false then
+		return edit_msg(receiver, msg_id, "`Self Is Not Off :)`", "md")
 	end
 	
 	_config.disabled_channels[receiver] = false
 
 	save_config()
-	return edit_msg(receiver, msg_id, "*❕حله روشنه ❗️*","md")
+	return edit_msg(receiver, msg_id, "*Self Is On Now :D*","md")
 end
 
 function msg_valid(msg)
@@ -219,12 +219,12 @@ function msg_valid(msg)
 		 return false
 	 end
 	if is_sudo(msg) and msg.content_.text_ then
-        if msg.content_.text_ == "/self on" or msg.content_.text_ == "/Self on" or msg.content_.text_ == "!self on" or msg.content_.text_ == "!Self on" then
+	  if msg.content_.text_ == "/self on" or msg.content_.text_ == "/Self on" or msg.content_.text_ == "!self on" or msg.content_.text_ == "!Self on" then
 	    enable_channel(msg.id_, msg.chat_id_)
 	  end
 	end
   if is_channel_disabled(msg.chat_id_) then
-    print('\27[36m❕حله خاموش شد❗️\27[39m')
+    print('\27[36m➣Self Is Off :/\27[39m')
    return false
 	  end
     return true
