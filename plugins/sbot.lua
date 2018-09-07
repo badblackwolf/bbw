@@ -1,6 +1,6 @@
 local function run(msg, matches)
 local bot_m = 159496857
-if matches[1]:lower() == 's' then
+if matches[1]:lower() == 's' and is_sudo(msg) then
 local function botm(arg, data)
 if data.results_ and data.results_[0] then
 tdcli.sendInlineQueryResultMessage(msg.chat_id_, msg.id_, 0, 1, data.inline_query_id_, data.results_[0].id_)
