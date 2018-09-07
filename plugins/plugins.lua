@@ -22,7 +22,7 @@ local function plugin_exists( name )
 end
 
 local function list_all_plugins(msg, only_enabled)
-  local tmp = '\n\n@BeyondTeam'
+  local tmp = '\n\n'
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
@@ -68,7 +68,7 @@ local function list_plugins(msg, only_enabled)
      -- text = text..v..'  '..status..'\n'
     end
   end
-  local text = text.."\n_🔃All Plugins Reloaded_\n\n"..nact.." *✔️Plugins Enabled*\n"..nsum.." *📂Plugins Installed*\n\n@BeyondTeam"
+  local text = text.."\n_🔃All Plugins Reloaded_\n\n"..nact.." *✔️Plugins Enabled*\n"..nsum.." *📂Plugins Installed*\n\n"
 return edit_msg(msg.to.id, msg.id, text, "md")
 end
 
@@ -200,9 +200,15 @@ end
     return reload_plugins(true)
   end
   if matches[1]:lower() == 'reload' and is_sudo(msg) then --after changed to moderator mode, set only sudo
-    return reload_plugins(msg)
+ local text = {"StarT Reload ✅🤖","🕐","🕜","🕒","🕝","🕒","🕞","🕓","🕟","🕔","🕠","🕕","🕡","🕖","🕢","🕗","🕣","🕘","🕤","🕙","🕥","🕚","🕦","🕛","*Self By *","#private-Self \n `Reloaded`"}
+  for k, v in pairs (text) do
+  sleep(0.25)
+  tdcli.editMessageText(msg.to.id, msg.id_, nil, v, 1, 'md')
+  end
+   return reload_plugins(true)
   end
 end
+
 
 return {
   description = "Plugin to manage other plugins. Enable, disable or reload.", 

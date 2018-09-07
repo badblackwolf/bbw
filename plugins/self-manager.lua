@@ -237,141 +237,132 @@ local hash = 'anti-flood'
 if matches[1] == 'help' and is_sudo(msg) then
 
 local text = [[
-*Commands:*
+⌨️ دستورات :
+▫️!settings
+فرستادن تنظیمات سلف بات شما
 
-*!settings*
-_Send Self Bot Settings_
+▫️!gpid
+نمایش آیدی گروه
 
-*!gpid*
-_Show Group Id_
+▫️!tosuper
+تغییر گروه به سوپر گروه
 
-*!tosuper*
-_Change Chat To Channel_
+▫️!chatlist
+نمایش لیست اسم
 
-*!chatlist*
-_Show Name List_
+▫️!chat + name answer
+تنظیم اسم پیام و پاسخ آن
 
-*!chat + name answer*
-_Set Chat Name And Answer_
+▫️!chat - name
+غیر فعال کردن پیام دادن در گروه
 
-*!chat - name*
-_Disabeled Chatting in Group_
+▫️!chat clean
+پاک کردن اسم و پاسخ آن
 
-*!chat clean*
-_Clean Name And Answers_
+▫️!delmy[name | username]
+حذف کردن اسم یا یوزر نیم شما
 
-*!delmy*`[name | username]`
-_Delete Name Or Username_
+▫️!markread [on | off]
+عوض کردن وضعیت سین زدن خودکار
 
-*!markread* `[on | off]`
-_Change Markread Status_
+▫️!autoleave [on | off]
+تنظیم وضعیت خارج شدن خودکار از گروه
 
-*!autoleave* `[on | off]`
-_Set Auto Leave Status_
+▫️!antiflood [on | off]
+تنظیم وضعیت ضد اسپم
 
-*!antiflood* `[on | off]`
-_Set Anfi Flood Status_
+▫️!self [on | off]
+تنظیم وضعیت سلف بات شما
 
-*!self* `[on | off]`
-_Set Self Bot Status In Group_
+▫️!pin (reply)
+پین کردن پیام مورد نظر در گروه
 
-*!pin* `(reply)`
-_Pin Your Message In Group_
+▫️!unpin
+آن پین کردن پیام مورد نظر در گروه
 
-*!unpin*
-_Unpin Your Message In Group_
+▫️!id [reply | username]
+نمایش آیدی شخص
 
-*!id* `[reply | username]`
-_Show User Id_
+▫️!del (reply)
+حذف پیام مورد نظر
 
-*!del* (reply)
-_Delete Message_
+▫️!inv [id | username | reply]
+دعوت کردن شخص به گروه
 
-*!inv* `[id | username | reply]`
-_Invite User To Group_
+▫️!kick [id | username | reply]
+حذف کردن شخص از گروه
 
-*!kick* `[id | username | reply]`
-_Kick User From Group_
+▫️!delall [id | username | reply]
+حذف کردن همه ی پیام های شخص
 
-*!delall* `[id | username | reply]`
-_Delete All Messages Of User_
+▫️!mute all
+ساکت کردن گروه
 
-*!mute* `all`
-_Mute Group_
+▫️!unmute all
+رفع ساکت کردن گروه
 
-*!unmute* `all`
-_UnMute Group_
+▫️!set[name | des | link]
+تنظیم اسم ، توضیحات و لینک گروه
 
-*!set*`[name | des | link]`
-_Set Group Name , Description , Link_
+▫️!addplugin text name.lua
+ساختن پلاگین مورد نظر شما
 
-*!addplugin* _text_ `name.lua`
-_Create Your Own Plugin_
+▫️!delplugin name
+حذف پلاگین
 
-*!delplugin* `name`
-_Delete Plugin_
+▫️!setmy[name | username] (name|username)
+تنظیم اسم یا یوزر نیم شما
 
-*!setmy*`[name | username]` *(name|username)*
-_Set Your Name or Your Username_
+▫️!addcontact [phone | firstname | lastname]
+اضافه کردن یک مخاطب جدید
 
-*!addcontact* `[phone | firstname | lastname]`
-_Added A New Contact_
+▫️!delcontact [phone]
+حذف مخاطب
 
-*!delcontact* `[phone]`
-_Delete Contact_
+▫️!addname [name]
+اضافه کردن اسن جدید به لیست اسم ها
 
-*!addname* `[name]`
-_Add New Name To Name List_
+▫️!remname [name]
+حذف کردن اسم از لیست اسم ها
 
-*!remname* `[name]`
-_Remove Name From Name List_
+▫️!setanswer [answer]
+اضافه کردن پاسخ به لیست پاسخ ها
 
-*!setanswer* `[answer]`
-_Add New Answer To Answer List_
+▫️!remanswer [answer]
+حذف کردن پاسخ از لیست پاسخ ها
 
-*!remanswer* `[answer]`
-_Remove Answer From Answer List_
+▫️!namelist
+نمایش لیست اسم ها
 
-*!namelist*
-_Show Names List_
+▫️!answerlist
+نمایش لیست پاسخ ها
 
-*!answerlist*
-_Show Answers List_
+▫️!pvsetflood [msgs]
+تنظیم آخرین حد پیام درنظر گرفته شده در زمان اسپم خوردن
 
-*!pvsetflood* `[msgs]`
-_Tet The Maximum Messages In A Floodtime To Be Considered As Flood_
+▫️!pvfloodtime [secs]
+تنظیم زمانی که ربات اسپم را چک میکند
 
-*!pvfloodtime* `[secs]`
-_Set The Time That Bot Uses To Check Flood_
+▫️!block [reply | id | username]
+بلاک کردن شخص
 
-*!block* `[reply | id | username]`
-_Block User_
+▫️!unblock [reply | id | username]
+رفع بلاک شخص
 
-*!unblock* `[reply | id | username]`
-_UnBlock User_
+▫️!sendfile [folder] [file]
+فرستادت فایل از فولدر گوشی
 
-*!sendfile* `[folder] [file]`
-_Send file from folder_
+▫️!savefile [adress/filename] [reply]
+ذخیره کردن فایل توسط ریپلای در فولدر مورد نظر شما
 
-*!sendplug* `[plug]`
-_Send plugin_
+▫️!edit [text] [reply]
+ویرایش پیام شما توسط ریپلای به پیام مورد نظر
 
-*!save* `[plugin name] [reply]`
-_Save plugin by reply_
+▫️!helpfun
+نمایش دستورات سرگرمی ربات
 
-*!savefile* `[adress/filename] [reply]`
-_Save File by reply to specific folder_
-
-*!edit* `[text] [reply]`
-_Edit Your meesage by reply to specific message_
-
-*!clear cache*
-_Clear All Cache Of .telegram-cli/data_
-
-*!helpfun*
-_Show Fun Help_
-
-*Good Luck ;)*]]
+وقت بخیر ;)
+]]
 
 tdcli.sendMessage(msg.sender_user_id_, "", 0, text, 0, "md")
             return edit_msg(msg.to.id, msg.id, '_Help was send in your private message_', "md")
