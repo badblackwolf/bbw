@@ -219,7 +219,7 @@ function msg_valid(msg)
 		 return false
 	 end
 	if is_sudo(msg) and msg.content_.text_ then
-	  if msg.content_.text_ == "فعال شو"  then
+        if msg.content_.text_ == "/self on" or msg.content_.text_ == "/Self on" or msg.content_.text_ == "!self on" or msg.content_.text_ == "!Self on" then
 	    enable_channel(msg.id_, msg.chat_id_)
 	  end
 	end
