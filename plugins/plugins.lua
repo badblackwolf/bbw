@@ -154,13 +154,13 @@ end
 local function run(msg, matches)
   -- Show the available plugins 
   if is_sudo(msg) then
-  if matches[1]:lower() == '!plist' or matches[1]:lower() == '/plist' or matches[1]:lower() == '#plist' then --after changed to moderator mode, set only sudo
+  if matches[1]:lower() == 'لیست پلاگین'  then --after changed to moderator mode, set only sudo
     return list_all_plugins(msg, true)
   end
 end
   -- Re-enable a plugin for this chat
-   if matches[1] == 'pl' then
-  if matches[2] == '+' and matches[4] == 'chat' then
+   if matches[1] == 'پلاگین' then
+  if matches[2] == '+' and matches[4] == 'چت' then
       if is_momod(msg) then
     local receiver = msg.chat_id_
     local plugin = matches[3]
@@ -178,7 +178,7 @@ end
   end
     end
   -- Disable a plugin on a chat
-  if matches[2] == '-' and matches[4] == 'chat' then
+  if matches[2] == '-' and matches[4] == 'چت' then
       if is_mod(msg) then
     local plugin = matches[3]
     local receiver = msg.chat_id_
@@ -196,10 +196,10 @@ end
   end
 end
   -- Reload all the plugins!
-  if matches[1] == '*' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+  if matches[1] == 'بروز' and is_sudo(msg) then --after changed to moderator mode, set only sudo
     return reload_plugins(true)
   end
-  if matches[1]:lower() == 'reload' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+  if matches[1]:lower() == 'بروز شو' and is_sudo(msg) then --after changed to moderator mode, set only sudo
  local text = {"StarT Reload ✅🤖","🕐","🕜","🕒","🕝","🕒","🕞","🕓","🕟","🕔","🕠","🕕","🕡","🕖","🕢","🕗","🕣","🕘","🕤","🕙","🕥","🕚","🕦","🕛","*Self By *","#private-Self \n `Reloaded`"}
   for k, v in pairs (text) do
   sleep(0.25)
@@ -224,13 +224,13 @@ return {
           "!pl * : reloads all plugins." },
           },
   patterns = {
-    "^[!/#]plist$",
-    "^[!/#](pl) (+) ([%w_%.%-]+)$",
-    "^[!/#](pl) (-) ([%w_%.%-]+)$",
-    "^[!/#](pl) (+) ([%w_%.%-]+) (chat)",
-    "^[!/#](pl) (-) ([%w_%.%-]+) (chat)",
-    "^!pl? (*)$",
-    "^[!/](reload)$"
+    "^(لیست پلاگین)$",
+    "^(پلاگین) (+) ([%w_%.%-]+)$",
+    "^(پلایگین) (-) ([%w_%.%-]+)$",
+    "^(پلاگین) (+) ([%w_%.%-]+) (چت)",
+    "^(پلاگین) (-) ([%w_%.%-]+) (چت)",
+    "^!پلاگین? (بروز)$",
+    "^(بروز شو)$"
     },
   run = run
 }
