@@ -369,7 +369,7 @@ tdcli.sendMessage(msg.sender_user_id_, "", 0, text, 0, "md")
 end
 end
 
-if matches[1] == 'help pv' and is_sudo(msg) then
+if matches[1] == 'help' and is_sudo(msg) then
 
 local text = [[
 ⌨️ دستورات :
@@ -514,9 +514,9 @@ return {
      "^[!/#](pvsetflood) (%d+)$",
 		"^[!/#](autoleave) (.*)$",
 		"^[!/#](settings)$",
-		"^[!/#](راهنما پیوی)$",
-		"^[!/#](راهنما)$",
-		"^(خاموش شو)$" 
+		"^[!/#](help pv)$",
+		"^[!/#](help)$",
+		"^[!/][Ss]elf (off)" 
 }, 
 	run = run,
 moderated = true,
